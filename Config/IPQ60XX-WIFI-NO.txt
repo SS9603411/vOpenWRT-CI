@@ -30,4 +30,5 @@ CONFIG_PACKAGE_wpad-openssl=n
 CONFIG_PACKAGE_hostapd-common=n
 # Compile
 CONFIG_USE_APK=n
-CONFIG_PACKAGE_opkg=y
+CONFIG_DEVEL=y
+CONFIG_CCACHE=y
