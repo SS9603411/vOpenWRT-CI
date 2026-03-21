@@ -1,7 +1,14 @@
 #科学插件调整
 CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_xray-core=y
-CONFIG_PACKAGE_sing-box=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=n
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin=n
 
 #增加插件
 CONFIG_PACKAGE_adguardhome=y
@@ -17,7 +24,10 @@ CONFIG_PACKAGE_luci-app-wol=n
 
 # 参数调整（仅保留编译必需基础项，无精简空间）
 CONFIG_CCACHE=y
-CONFIG_DEVEL=n
+CONFIG_DEVEL=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+CONFIG_TARGET_ROOTFS_INITRAMFS=n
 
 # 内核调整（仅保留USB外接磁盘必需驱动，其余全部精简）
 CONFIG_PACKAGE_kmod-fuse=y
@@ -28,11 +38,6 @@ CONFIG_PACKAGE_kmod-usb-storage=y
 CONFIG_PACKAGE_kmod-usb-storage-uas=y
 CONFIG_PACKAGE_kmod-fs-ext4=y
 CONFIG_PACKAGE_kmod-fs-ntfs3=y
-
-# dnsmasq强制替换为完整版，适配passwall
-CONFIG_PACKAGE_dnsmasq=n
-CONFIG_PACKAGE_dnsmasq-full=y
-
 # 以下为精简项（全部禁用）
 CONFIG_PACKAGE_kmod-bonding=n
 CONFIG_PACKAGE_kmod-dsa=n
